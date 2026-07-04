@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d2c63">
+<title>Youth Empower Program | Building Leaders, Researchers & Entrepreneurs</title>
+<meta name="description" content="Youth Empower Program (YEP) is a nonprofit youth organisation in Dhaka, Bangladesh, running free virtual internships and training in research, IT, and creative skills.">
+<link rel="icon" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/7QCEUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAGgcAigAYkZCTUQwYTAwMGFiNzAxMDAwMDNkMDMwMDAwYWUwNDAwMDAyMjA1MDAwMGNmMDUwMDAwNWUwODAwMDA3YjBiMDAwMDA5MGMwMDAwOGUwYzAwMDAxNDBkMDAwMDQ1MTAwMDAwAP/bAIQ=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d2c63;
+    --blue:#1c4fa3;
+    --blue2:#2f6fd6;
+    --sky:#eef4fd;
+    --sky2:#dbe9fb;
+    --teal:#1fb6ad;
+    --white:#ffffff;
+    --ink:#132043;
+    --muted:#5c6a86;
+    --border:#e2eaf8;
+    --shadow:0 14px 34px rgba(13,44,99,0.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.65;
+    overflow-x:hidden;
+    width:100%;
+    min-width:320px;
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;}
+  }
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);letter-spacing:-0.01em;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  ul{list-style:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:0.72rem;
+    letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);
+    margin-bottom:10px;
+  }
+  .eyebrow::before{content:"";width:16px;height:2px;background:var(--teal);border-radius:2px;}
+  .sec-head{max-width:640px;margin-bottom:44px;}
+  .sec-head h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;margin-bottom:12px;}
+  .sec-head p{color:var(--muted);font-size:1.02rem;}
+  section{padding:88px 0;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:0.92rem;
+    padding:13px 26px;border-radius:10px;cursor:pointer;border:none;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--blue2),var(--navy));color:#fff;box-shadow:0 10px 24px rgba(28,79,163,0.28);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(28,79,163,0.36);}
+  .btn-ghost{background:#fff;color:var(--navy);border:1.5px solid var(--border);}
+  .btn-ghost:hover{border-color:var(--blue2);color:var(--blue2);transform:translateY(-2px);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.06rem;color:var(--navy);}
+  .brand img{width:38px;height:38px;border-radius:9px;}
+  .nav-links{display:flex;align-items:center;gap:30px;}
+  .nav-links a{font-family:'Poppins',sans-serif;font-weight:500;font-size:0.9rem;color:var(--ink);position:relative;padding:4px 0;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--teal);transition:width .25s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  #menu-toggle{display:none;}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;margin:-10px;}
+  .burger span{width:24px;height:2.5px;background:var(--navy);border-radius:2px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;padding:78px 0 0;
+    background:linear-gradient(180deg,#f7faff 0%,#ffffff 100%);
+    overflow:hidden;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:50px;align-items:center;}
+  .hero h1{font-size:clamp(2.1rem,4.4vw,3.35rem);font-weight:800;line-height:1.14;margin-bottom:18px;}
+  .hero h1 span{background:linear-gradient(135deg,var(--blue2),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p.lead{color:var(--muted);font-size:1.08rem;max-width:520px;margin-bottom:30px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+  .stat-row{display:flex;gap:34px;flex-wrap:wrap;}
+  .stat-row .stat b{display:block;font-family:'Poppins',sans-serif;font-size:1.7rem;font-weight:700;color:var(--navy);}
+  .stat-row .stat span{font-size:0.82rem;color:var(--muted);}
+  .hero-art{position:relative;display:flex;align-items:center;justify-content:center;}
+  .hero-art .halo{
+    position:absolute;width:360px;height:360px;border-radius:50%;
+    background:radial-gradient(circle,rgba(47,111,214,0.16),rgba(31,182,173,0.05) 70%,transparent 75%);
+  }
+  .hero-art .ring{
+    position:absolute;width:300px;height:300px;border-radius:50%;
+    border:1.5px dashed #b9cdf2;animation:spin 40s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .hero-art .logo-card{
+    position:relative;background:#fff;border-radius:26px;padding:34px;
+    box-shadow:var(--shadow);border:1px solid var(--border);
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .hero-art .logo-card img{width:150px;height:150px;object-fit:contain;}
+  .hero-art .logo-card small{font-family:'Poppins',sans-serif;color:var(--muted);font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;}
+  .wave{display:block;width:100%;line-height:0;margin-top:60px;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  .about-copy p{color:var(--muted);margin-bottom:16px;font-size:1rem;}
+  .about-copy .mission{
+    margin-top:22px;padding:22px 24px;border-left:3px solid var(--teal);
+    background:var(--sky);border-radius:0 12px 12px 0;
+  }
+  .about-copy .mission b{color:var(--navy);font-family:'Poppins',sans-serif;}
+  .skills-box{background:var(--navy);border-radius:20px;padding:34px;color:#fff;}
+  .skills-box h3{color:#fff;font-size:1.1rem;margin-bottom:6px;}
+  .skills-box p{color:#b9c8ea;font-size:0.88rem;margin-bottom:20px;}
+  .chip-grid{display:flex;flex-wrap:wrap;gap:10px;}
+  .chip{
+    background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);
+    color:#e7edfb;padding:8px 14px;border-radius:20px;font-size:0.83rem;font-weight:500;
+  }
+
+  /* ---------- DEPARTMENTS ---------- */
+  .dept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .dept-card{
+    background:#fff;border:1px solid var(--border);border-radius:18px;padding:30px 26px;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .dept-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .dept-icon{
+    width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--blue2),var(--teal));color:#fff;margin-bottom:18px;
+  }
+  .dept-card h3{font-size:1.08rem;margin-bottom:8px;}
+  .dept-card p{color:var(--muted);font-size:0.9rem;}
+
+  /* ---------- PROGRAMS ---------- */
+  .bg-sky{background:var(--sky);}
+  .prog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .prog-card{
+    position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;
+    box-shadow:0 6px 18px rgba(13,44,99,0.08);border:1px solid var(--border);
+    background:#fff;
+  }
+  .prog-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+  .prog-card:hover img{transform:scale(1.07);}
+  .prog-overlay{
+    position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,29,63,0.86));
+    display:flex;align-items:flex-end;padding:14px;
+  }
+  .prog-overlay span{color:#fff;font-family:'Poppins',sans-serif;font-weight:600;font-size:0.86rem;line-height:1.3;}
+  .prog-play{
+    position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;
+    background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- VIDEOS ---------- */
+  .video-tabs h3{font-size:1.15rem;margin:0 0 20px;display:flex;align-items:center;gap:10px;}
+  .video-tabs h3::before{content:"";width:6px;height:22px;background:var(--teal);border-radius:3px;}
+  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:56px;}
+  .video-grid:last-of-type{margin-bottom:0;}
+  .video-frame{border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 8px 20px rgba(13,44,99,0.08);background:#000;}
+  .video-frame .ratio{position:relative;width:100%;padding-top:56.25%;}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+  /* ---------- TEAM ---------- */
+  .tier{margin-bottom:48px;}
+  .tier:last-child{margin-bottom:0;}
+  .tier-label{
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:0.78rem;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--blue2);margin-bottom:18px;display:flex;align-items:center;gap:10px;
+  }
+  .tier-label::after{content:"";flex:1;height:1px;background:var(--border);}
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .team-grid.single{grid-template-columns:280px;}
+  .person{
+    background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 18px;text-align:center;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .person:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .person .avatar{
+    width:84px;height:84px;border-radius:50%;overflow:hidden;margin:0 auto 14px;
+    border:3px solid var(--sky2);
+  }
+  .person .avatar img{width:100%;height:100%;object-fit:cover;}
+  .person h4{font-size:0.95rem;margin-bottom:4px;}
+  .person span{font-size:0.78rem;color:var(--muted);display:block;line-height:1.4;}
+
+  /* ---------- PARTNERS (marquee) ---------- */
+  .partner-block{margin-bottom:38px;}
+  .partner-block:last-child{margin-bottom:0;}
+  .partner-title{font-family:'Poppins',sans-serif;font-weight:600;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;text-align:center;}
+  .marquee{position:relative;}
+  .marquee-track{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px;}
+  .marquee-track img{height:56px;width:auto;object-fit:contain;opacity:0.95;}
+
+  /* ---------- IMPACT ---------- */
+  .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .impact-card{
+    background:#fff;border:1px solid var(--border);border-radius:18px;padding:28px 24px;
+    text-align:center;transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .impact-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .impact-card b{display:block;font-family:'Poppins',sans-serif;font-size:2rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+  .impact-card span{font-size:0.88rem;color:var(--muted);}
+
+  /* ---------- OUTCOMES ---------- */
+  .outcome-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:start;}
+  .outcome-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .outcome-item{display:flex;align-items:flex-start;gap:10px;font-size:0.94rem;color:var(--ink);}
+  .outcome-item svg{flex-shrink:0;margin-top:2px;color:var(--teal);}
+  .perks-box{background:var(--navy);border-radius:20px;padding:34px;color:#fff;}
+  .perks-box h3{color:#fff;font-size:1.1rem;margin-bottom:6px;}
+  .perks-box p{color:#b9c8ea;font-size:0.88rem;margin-bottom:20px;}
+  .perks-list{display:flex;flex-direction:column;gap:12px;}
+  .perks-list li{display:flex;align-items:center;gap:10px;font-size:0.9rem;color:#e7edfb;}
+  .perks-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .testi-card{
+    background:#fff;border:1px solid var(--border);border-radius:18px;padding:26px 24px;
+    display:flex;flex-direction:column;gap:16px;transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .testi-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .testi-quote-mark{color:var(--teal);opacity:0.35;}
+  .testi-card p{font-size:0.92rem;color:var(--ink);flex:1;}
+  .testi-foot h4{font-size:0.92rem;margin-bottom:2px;}
+  .testi-foot span{font-size:0.78rem;color:var(--muted);}
+
+  /* ---------- FUTURE GOAL ---------- */
+  .goal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .goal-card{
+    background:#fff;border:1px solid var(--border);border-radius:18px;padding:26px 22px;
+    text-align:center;transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .goal-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .goal-icon{
+    width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--blue2),var(--teal));color:#fff;margin:0 auto 16px;
+  }
+  .goal-card p{font-size:0.9rem;color:var(--ink);font-weight:500;}
+
+  /* ---------- COMMUNITY ---------- */
+  .comm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .comm-card{
+    background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px 22px;
+    display:flex;flex-direction:column;gap:14px;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .comm-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--blue2);}
+  .comm-icon{width:42px;height:42px;border-radius:11px;background:var(--sky);display:flex;align-items:center;justify-content:center;color:var(--blue2);}
+  .comm-card h4{font-size:1rem;}
+  .comm-card p{font-size:0.82rem;color:var(--muted);}
+
+  /* ---------- CTA STRIP ---------- */
+  .cta-strip{
+    background:linear-gradient(135deg,var(--navy),var(--blue2));
+    border-radius:26px;padding:52px 44px;display:flex;align-items:center;justify-content:space-between;
+    gap:30px;flex-wrap:wrap;
+  }
+  .cta-strip h2{color:#fff;font-size:1.7rem;margin-bottom:8px;}
+  .cta-strip p{color:#c9d8f5;font-size:0.96rem;}
+  .cta-strip .btn-ghost{background:#fff;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy);color:#c9d8f5;padding:56px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+  .foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .foot-brand img{width:36px;height:36px;border-radius:8px;}
+  .foot-brand span{font-family:'Poppins',sans-serif;font-weight:700;color:#fff;}
+  footer p.small{font-size:0.86rem;color:#a9bce3;max-width:280px;}
+  footer h5{color:#fff;font-family:'Poppins',sans-serif;font-size:0.85rem;margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase;}
+  footer li{margin-bottom:10px;font-size:0.88rem;overflow-wrap:anywhere;}
+  footer a:hover{color:#fff;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:0.82rem;color:#93a8d4;}
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .whatsapp-float{
+    position:fixed;bottom:24px;right:24px;z-index:200;
+    width:58px;height:58px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 26px rgba(37,211,102,0.45);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .whatsapp-float:hover{transform:scale(1.08);box-shadow:0 14px 32px rgba(37,211,102,0.55);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{margin-top:20px;}
+    .about-grid{grid-template-columns:1fr;}
+    .dept-grid{grid-template-columns:1fr 1fr;}
+    .prog-grid{grid-template-columns:repeat(3,1fr);}
+    .video-grid{grid-template-columns:1fr 1fr;}
+    .team-grid{grid-template-columns:repeat(3,1fr);}
+    .comm-grid{grid-template-columns:1fr 1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .impact-grid{grid-template-columns:1fr 1fr;}
+    .outcome-grid{grid-template-columns:1fr;}
+    .testi-grid{grid-template-columns:1fr 1fr;}
+    .goal-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:720px){
+    .nav-links{position:fixed;top:66px;left:0;right:0;background:#fff;flex-direction:column;padding:22px 24px;
+      border-bottom:1px solid var(--border);transform:translateY(-130%);opacity:0;transition:all .3s ease;gap:16px;align-items:flex-start;}
+    #menu-toggle:checked ~ .nav-links{transform:translateY(0);opacity:1;}
+    .burger{display:flex;}
+    .nav-cta .btn-ghost{display:none;}
+    section{padding:60px 0;}
+    .dept-grid,.prog-grid,.video-grid,.team-grid,.comm-grid{grid-template-columns:1fr 1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .cta-strip{flex-direction:column;text-align:center;}
+    .impact-grid,.testi-grid,.goal-grid{grid-template-columns:1fr 1fr;}
+    .outcome-list{grid-template-columns:1fr;}
+  }
+  @media(max-width:480px){
+    .prog-grid,.video-grid,.team-grid,.comm-grid,.dept-grid{grid-template-columns:1fr;}
+    .stat-row{gap:22px;}
+    .impact-grid,.testi-grid,.goal-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- EXTRA TABLET FINE-TUNING (iPad / medium tablets) ---------- */
+  @media(min-width:721px) and (max-width:1024px){
+    .wrap{padding:0 20px;}
+    .prog-grid{grid-template-columns:repeat(3,1fr);}
+    .team-grid{grid-template-columns:repeat(3,1fr);}
+  }
+
+  /* ---------- SMALL PHONES ---------- */
+  @media(max-width:600px){
+    .wrap{padding:0 16px;}
+    section{padding:52px 0;}
+    .hero{padding-top:64px;}
+    .hero h1{font-size:clamp(1.7rem,7vw,2.1rem);}
+    .hero p.lead{font-size:0.98rem;}
+    .hero-actions{gap:10px;}
+    .hero-actions .btn{flex:1 1 auto;justify-content:center;text-align:center;}
+    .hero-art{margin-top:10px;}
+    .hero-art .halo,.hero-art .ring{width:220px;height:220px;}
+    .hero-art .logo-card{padding:22px;}
+    .hero-art .logo-card img{width:100px;height:100px;}
+    .sec-head h2{font-size:1.5rem;}
+    .team-grid.single{grid-template-columns:minmax(0,280px);justify-content:center;}
+    .cta-strip{padding:36px 26px;text-align:center;justify-content:center;}
+    .cta-strip h2{font-size:1.4rem;}
+    .marquee-track{gap:26px;}
+    .marquee-track img{height:44px;}
+    .whatsapp-float{width:50px;height:50px;bottom:calc(16px + env(safe-area-inset-bottom));right:calc(16px + env(safe-area-inset-bottom,0px));}
+    .foot-bottom{flex-direction:column;text-align:center;}
+  }
+
+  /* ---------- VERY SMALL PHONES ---------- */
+  @media(max-width:380px){
+    .brand{font-size:0.95rem;}
+    .brand img{width:32px;height:32px;}
+    .nav-cta .btn-primary{padding:10px 16px;font-size:0.82rem;}
+    .stat-row{gap:16px;}
+    .stat-row .stat b{font-size:1.4rem;}
+    .impact-card b{font-size:1.6rem;}
+    .cta-strip h2{font-size:1.25rem;}
+  }
+
+  /* ---------- LARGE DESKTOP / WIDE SCREEN CAP ---------- */
+  @media(min-width:1600px){
+    .wrap{max-width:1320px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <nav>
+    <a href="#top" class="brand">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/7QCEUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAGgcAigAYkZCTUQwYTAwMGFiNzAxMDAwMDNkMDMwMDAwYWUwNDAwMDAyMjA1MDAwMGNmMDUwMDAwNWUwODAwMDA3YjBiMDAwMDA5MGMwMDAwOGUwYzAwMDAxNDBkMDAwMDQ1MTAwMDAwAP/bAIQABQYGCwgLCwsLCw0LCwsNDg4NDQ4ODw0ODg4NDxAQEBEREBAQEA8TEhMPEBETFBQTERMWFhYTFhUVFhkWGRYWEgEFBQUKBwoICQkICwgKCAsKCgkJCgoMCQoJCgkMDQsKCwsKCw0MCwsICwsMDAwNDQwMDQoLCg0MDQ0MExQTExOc/8IAEQgAyADIAwEiAAIRAQMRAf/EAIIAAQACAwEBAQAAAAAAAAAAAAAFBwIDBgQBCBAAAQICBgUIBwYHAAAAAAAAAQIDABEEEiExQVETICJhcQUyQIGRobHwEBQwUsHR4SMzQlBicCRygqKywvERAQABAwIFAwQCAwAAAAAAAAERACExQVFhcYGRoSCx8EDB0fEQMFBw4f/aAAwDAQACAAMAAAABuUAAAAAAAAAAACmrlpouUAAAAAAAAAAACmrlpouUAAAAAAAAAAACmrlpouUAB5cvvz0D59AAAAAAAAU1ctNFykFljO6+T6HPHw+3xM8Z1wGeXzvHBz2GU8NG0AAAAABTVy00XLEy2vLGM5rpoz06Zng93QbcN0j7+c8u7xyvpkfoNG0AAAAABTVy00XKDx891vLejTEd7yPYkX7uA4PRtvvOipH59sfyUp1pcuNY8mX9qoWTLpzqvo88etyoLPDK+saGjT9HZUVdx6KauWmi5QOS62N26+OsGuPX6dcxvn3h9HPZT+siM5gR/gnxE7ZERUhF+z78iZLXo+ffVGyeJ9ko6RFNXLTRcoAOLi7IiPXo4uSnJZ95ubkHn2BhkAAAAAApq5aaLlAAAAAAAAAAAApq5aaLlAAAAAAAAAAAApq5aaLlAAAAAAAAAAAApq5aaLlU0LlU0LlU0LlU0LlU0LlU0LlU0LlU0LlU0LlU0LlU0LlU0LlpoP/aAAgBAQABBQL9s3HQiG11x0ZRkGBMsWJ6JTXFtpFPUiAtLyaMqHaQGAF0l+PVaSI09IZhinId6DTEzaRa24jQQFJkhaVqSp12AzFIeKzR6GlroKhMUT7t3YOl/h6LQg36HXy5DFHDI6Fo5HlIbHJ7coInBo7ZhNVMBaTExFLp6KMlVPlSUqCoUsJicaRMVxAM4C0k1hFYRXE6wi/V5TVJtGyiOWmykOuKcTSGmmE0N1KFONj1NyjNLpnI6dG/IvOLQVwzQGzS+QVHQ8pOKDD7TLVGdrIcarOONI0rRZ9YpLbYbTqcqDYeXJoGccosOvN0ShJYZa5NYaUvk5ha/UWaiKE0gt0ZDan+T2HiaG0YFGQFtUVDQqiSOTKOhSqM2paaM2la+TKOtXqzdfVpLWkRRftUUCl1NQqlrsMlBS1INslCaOypLa2Zo0Gwwzo9emUQzUEUyEvUijQOVxCaU87DTNXor1DbdhFHWiEg/uD/AP/aAAgBAwABPwH8pnh7NSpCeUBwKuvyuhJAAPGfnONNkhRhLoNlxyNnsVCYIzhYmAew5HzZFrhTLATOUzB2b7T48BCUfiVf4eydGyqGUySB29cSGWrO3WcE0kQ0u7f4jWlrqavKcb0m76GEg7xxkYA6/wA9/9oACAECAAE/AfymqZTw9mhNYgZwpkplMWZi0dohYJJTebJDzhIx6tK9xIOU5wujqFtihmkz9igyIORBhsyUoX2mYwUnHrxEABoLmTMkpTnVHhxgTXcAkY7uJvhbtlVFicTired272VHO2jj3f8AIpKqyieMuAMoKicdWrZPWYVVWk74fa52aCTxSq0Hq1p67dIuCpzTzVi8biMRC1oP4Qr+Wae6UKXkKvnP89//2gAIAQEABj8C/bO3sxgHPo5OUVjzlW8BhEvdJHf0WsnA2x9q3LePPxg1TOcGd6Qkdk4t5yrZRMbKez6x95/cY2k1h5xES5qsj0FfDwhOOyLM7IDzXNN48+RGlzTBdduwTn/yLBok77Vdl0WqUrifgLI0LV/4jlGas+gkZwkYp2T1Q4g81xJUOOPzhLf4l4bpxNVq/D0VGrTirBP1iQ6zn0OsnG8YH6wFYg+MF04WJ890WxaOqZ8JxISG6LCD1+gKVM1jLZl84SxVsUmtWnx+UWGcWkD0EzFl9sTmJeiUxPKcXxfEpieUX60s1CKMn3lT7ifH0N0hPOZUOw/XxilUlM9pSWwf0Y/69sUVdHP2pKbjMq49dkcoViEzKr/64ZXjpVJ6r4abH3WiwN42sYpTaealVg6zFJ0iUKUCRtuVKgtuihIWqttqTWSqezWTjD7MjogmdWZv2fmYzk6f8YdW3Zs39Y8BOGXWjJ+abQbZ42bjD1Hu9ZU3LdWMz4wyxeaMXOuqZjwAhaiG65Va6tyqoHhDCXFc5kVik86QOO+EpFyRIdWqn+b4RR3PcUPPd6KjZSK1iq2UBo7Xvb53xWS2ArO/xiuWwVHH6XRotGKk5y3wlSUAFAkk5DyYUpKZKXzjnFZbYJzu8IRsD7PmboLgTtqsJ88Ik2Kls7M7olhFcNCt5wugOFIrpuMFwJAWq8xXLQn5wugOVRXAkDu1lJ7OMLYNhNqeMaFywiwfL5anHXJJvn/lO3qhVvOJM+PyhQnMnqw64KTYTO3qvioDK7uhKCZyqz3yiU53dw+OvpG77yPiI9x7uVElJrJ7e8fGPu1RsNVf1L+UTUay8/kMB0W0W5iLHTLJQnFpB6pfH9wf/9oACAEBAQE/If8AWYd13AuuRVhYhMfTyxgL2qEvh9mKP6LCjx9KLc0CTZ/7UFIHGL8UgZATlJqZKVSIWnGib3og8fsb1qLYi3u3VkEn5ZIrZTrE/HiVEZHU5OH3+hgvG+77VJ4a93DCTntV8cW3D9ptxValiReBe/Epn895RgDbsWrsWiiQ4YOtGZDix4PCunU4GpPu9C9BjG8/tt9DPGAncp3GoGy4qHYRpLetu6sVdkBm774qPi8XLx49v4eds07n9n6zUXJlfNPo2SkOVoa8OLvwnxofQo0IufKbe6DrQmANNBIupvKHihoZog8U6ihkAp2oabls3xUejDuMwuotarIFOzgeIjmmhJIbiJ4qGFHEoT3pJAoLjjQhYskIOe1WS4YZIetDgjyvSgsMgSdM0JLCDNy1IQwvi5ek5SeJE9s0hZA5zpQgkZHX0wH6SX7VyULp9i/glLs8WPw7qgXGAkkdEgHmreyEyAmEvIgzFBy0AQTfCc3TvS0Fsi+co2yVdOxDwA4iyi5vRzQJcmIH2tU2lyMhQR2LX5b3gpOoCDAdSU4U3YGQRZCbyxamgIuDBsM2Ot4qZBAISMJKa7rSaujQkrYpZeDhrRHik2WgdO46VM4pW1knRnqKdmIUZcj4z7LOmzwnoiTVoMhZsIPTIm3uVQ9vOgjQgJcSR4NMt/lntA3mohjDcWe06acqi3mLocpIdKQZ9Kb8bruMTS3WZjiGZHrWbgWTctni70ExEhMqZv1a6rTJjeRPWkHy62Y2i2QovgWXKWtto7VZ9eEuvOlGJmEI3k40SFDI3QdxMO1KdFGqF+mrRvyjVS34KcKtlbgvEMu1d6SpCI2w7erexJ5FyoZaJNBp0Se9TMtlff8AEnT0FGc2BqvrzzlpN5QUrKWEBBblFJTuQkxmcLHKtpgZAwN1dJb5a+8CgFgwch45a0EATmyF1m/OrlOUfPfXm1DuSN2YFut8n1hvosDMnwShiUIiXQ+cziVd8WFkRwqPzJsI/itB7qwdl2smtl2ttg4B1+luEHKP4etWJ2w+cjR8xw/I/wBg/wD/2gAMAwEBAgEDAQAAEPPPPPPPPPPPPKPPPPPPPPPPPPKPPPPPPPPPPPPKPPNvPPPPPPPPKP8A/bT7zzzzzzyj0bCPTzzzzzzyjx285gDAixjgijy0myixxzUDTyjzzgW/zzzzzzyjzzzzzzzzzzzyjzzzzzzzzzzzyjzzzzzzzzzzzyjDDDDDDDDDDDCD/9oACAEDAQE/EP8AExm6+Y/rBlMXMbVMCsMiXZ0pAsBcfM8SVJuBvETypaU7TL8f08ACdytBmDcjt0W4pQQQE+G8apmON6hkdI3djxV/JpNDsceP9RHLnr+65EDzXUFgHI9Ol41xn1R1lGOZcqQ4QcrXq3etBgdUO40fCDrNbr8cP87/AP/aAAgBAgEBPxD/ABOgsmB3eHb+tSUFwTYnTvipNeuY8gT5oWklp46aEWa+khwUw0LGHtJz1O0f0/p4Ga0ffBCwuUm2gWey6HHJausk2fF7V+ZA/wBQO69h7H40rmL2ErKJ6+nwM6ZxzfULeATwGz4rTeoCDZ67PSAFD1xcVZJYx57v1/nf/9oACAEBAQE/EP8AWZ52iSfhfFRvDETKE7/TnmReQmlvN/E2c1NfkIeQ+lhQQIu2xyJEO9Ym/ksecrp0VNYdTKg3Dg0yjqDGOdN70yu8ToED2VlHIeHNzyu0JSuqoh+BQlJoGLvmFuD6I2IB3SbUAt+h4Sp7WNxj2DelzsJvj9wPFaEV9ui2dTzr9YY2NK872BQnIwR7AVQsHRd54dPK+79COdF5Mfel0v1JZ+AeTXwZd9+TSV5vLPyyyhdeN+Fv+LdQu2Ckbls+YjF8Gl6b0110eG2jnK/RMIRuQQouBaMyWDBRuBQdCJ42onMB8qz9opHA7JJRBsQQ9wpCFGtbDl/FedPZYJTrVkNtB6r2xrRSjB1IHmR3rt2qxNJVuaeLpHFJSWCU7yCJ6U3gQKDyGtDR3gJXZTHVQn/LLUoaDk3EoE9Kyg6DFuGHahAXKsczNqEQTMwcl79KL5ABPlL2U7AhIQMLrE4jWjAACBkRwiWT08Bh0P2VI9x393fx948SrhY5fwfxDZmnaZ5hpqa2oxrSHhyugGpLj2Edxn+FezIjVjaNZWFzrra60UOrMigg+BUKABOBXdow7VHVObXkRsDwONWBasrCJ9gnCRyaGmAGD9j8G9CIFPfvC6AQn6n8QTL+FHTZg8Ra7g4tH2r0qCArdsZfSuinPS01xFCIrYMDCEicyhxEkNwa4fI5XoiN72pl0CdBRG/TJdyp4grZn5CiJXH3CZqWuRd+UQpGdJGZxSurempX8hJSUyNgrC7ZlpDadsrWp5amJMbCjIXm9dfTMvX7GjYr/wDKntok3FJGbrM6116WtJCGkWaVMnR5752WtQSROZ12sX0jSupz9pAI6zdrWM0USSkJNsh6kOe8HyJHWpw+Qz6FS2af3U93A4v5jiuQuiDgXdi7b1jUnawVCQM4NlIKk4J0olkGhso8mQxtSxJbj1Dz1T6DLN5BZ1OLpIhYySCEAeBRZZ1pWM2TayTkb9SakwSTOiX4kOZvn1/MYDiXvd69hu01R/1z4TPQVai/K7vFWDcUHiAdCmSBYOQyjZHEcpfpUGfa/f8AsGrOziC/HzXUQP7v9gv/2Q==" alt="YEP Logo">
+      Youth Empower Program
+    </a>
+    <input type="checkbox" id="menu-toggle">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#community">Community</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://wa.me/8801570219399?text=Hi%2C%20I%27m%20interested%20in%20joining%20the%20YEP%20Internship%20Program." target="_blank" class="btn btn-primary">Join Internship</a>
+      <label for="menu-toggle" class="burger"><span></span><span></span><span></span></label>
+    </div>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<div id="top" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Nonprofit Youth Organisation · Open to All Bangladesh</div>
+      <h1>Empowering youth to lead, <span>research &amp; build</span> the future</h1>
+      <p class="lead">Youth Empower Program runs free virtual internships and training sessions that turn university students and young entrepreneurs into confident researchers, leaders, and professionals.</p>
+      <div class="hero-actions">
+        <a href="https://www.facebook.com/share/g/1KxJv9oUaB/" target="_blank" class="btn btn-primary">Join Our Community</a>
+        <a href="#programs" class="btn btn-ghost">Explore Programs</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>100,000+</b><span>Youth reached</span></div>
+        <div class="stat"><b>150+</b><span>Interns developed</span></div>
+        <div class="stat"><b>17+</b><span>Universities represented</span></div>
+        <div class="stat"><b>Batch 3</b><span>Internship running</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="halo"></div>
+      <div class="ring"></div>
+      <div class="logo-card">
+        <img src="data:image/jpeg;base64,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" alt="Youth Empower Program logo">
+        <small>Est. January 2025</small>
+      </div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none"><path fill="#ffffff" d="M0,32 C240,80 480,0 720,24 C960,48 1200,88 1440,40 L1440,90 L0,90 Z"></path></svg>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <div class="eyebrow">Who we are</div>
+      <h2 style="font-size:1.9rem;margin-bottom:18px;">A nonprofit built for tomorrow's leaders</h2>
+      <p>Youth Empower Program (YEP) is a nonprofit youth organisation of Bangladesh. Our Virtual Internship programs and completely free training sessions are open to university students from every university across Bangladesh, helping them become genuinely job-ready wherever they study.</p>
+      <p>Inside our internships, participants work on academic research, market research, startup research, and real IT project building — while developing the human side of professional life: team management, critical thinking, time management, presentation skills, public speaking, and emotional intelligence.</p>
+      <div class="mission">
+        <b>Our mission</b> — to develop leadership among young people, nurture entrepreneurship, and push the next generation forward in research and innovation.
+      </div>
+    </div>
+    <div class="skills-box">
+      <h3>What interns learn</h3>
+      <p>Every batch is built around practical, transferable skills.</p>
+      <div class="chip-grid">
+        <span class="chip">Academic Research</span>
+        <span class="chip">Market Research</span>
+        <span class="chip">Startup Research</span>
+        <span class="chip">IT Project Making</span>
+        <span class="chip">Team Management</span>
+        <span class="chip">Critical Thinking</span>
+        <span class="chip">Time Management</span>
+        <span class="chip">Presentation Skills</span>
+        <span class="chip">Public Speaking</span>
+        <span class="chip">Emotional Intelligence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IMPACT ================= -->
+<section id="impact">
+  <div class="wrap">
+    <div class="sec-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">By the numbers</div>
+      <h2>Our impact so far</h2>
+      <p style="margin:0 auto;">Since January 2025, YEP has grown into a nationwide youth development effort across Bangladesh's universities.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card"><b>100,000+</b><span>Youth reached through free learning sessions, career programs &amp; youth development initiatives</span></div>
+      <div class="impact-card"><b>150+</b><span>Interns developed in research, teamwork, communication &amp; professional skills</span></div>
+      <div class="impact-card"><b>3</b><span>Internship batches completed</span></div>
+      <div class="impact-card"><b>17+</b><span>Universities represented</span></div>
+      <div class="impact-card"><b>15+</b><span>Volunteers &amp; team members</span></div>
+      <div class="impact-card"><b>14+</b><span>Training sessions conducted</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEPARTMENTS ================= -->
+<section class="bg-sky">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Our structure</div>
+      <h2>Three departments, one mission</h2>
+      <p>Every intern and volunteer works within one of our three core departments, each building a different set of real-world capabilities.</p>
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card">
+        <div class="dept-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Research &amp; Innovation</h3>
+        <p>Academic, market and startup research projects that sharpen analytical thinking and evidence-based decision making.</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="13" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>IT Department</h3>
+        <p>Hands-on IT project building — from small tools to full applications — under the guidance of experienced mentors.</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 20V6a2 2 0 012-2h9l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 13h8M8 17h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Content Writing &amp; Creative</h3>
+        <p>Storytelling, design and communication — the creative engine that carries YEP's message to a wider audience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUTCOMES ================= -->
+<section id="outcomes">
+  <div class="wrap outcome-grid">
+    <div>
+      <div class="eyebrow">What you gain</div>
+      <h2 style="font-size:1.9rem;margin-bottom:22px;">Student outcomes</h2>
+      <div class="outcome-list">
+        <div class="outcome-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Research skills</div>
+        <div class="outcome-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Presentation skills</div>
+        <div class="outcome-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Team management ability</div>
+        <div class="outcome-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Professional communication</div>
+        <div class="outcome-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Project development experience</div>
+        <div class="outcome-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Startup thinking</div>
+        <div class="outcome-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Career readiness</div>
+        <div class="outcome-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Emotional intelligence</div>
+        <div class="outcome-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Critical thinking</div>
+      </div>
+    </div>
+    <div class="perks-box">
+      <h3>Students also receive</h3>
+      <p>Beyond skills, every graduate leaves with tangible support.</p>
+      <ul class="perks-list">
+        <li>Certificate</li>
+        <li>Recommendation support</li>
+        <li>Alumni community opportunity</li>
+        <li>Job placement support</li>
+        <li>Networking support</li>
+        <li>Start-up support</li>
+        <li>Research support</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROGRAMS ================= -->
+<section id="programs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Free training programs</div>
+      <h2>Sessions built for career-ready skills</h2>
+      <p>A snapshot of our recent free training programs — tap any card that links to a recording to watch it.</p>
+    </div>
+    <div class="prog-grid">
+      <a class="prog-card" href="https://www.youtube.com/@youth-empower-program" target="_blank">
+        <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirvnHm6-4RnOgMLeMQ7WJ4SbIqqFw_o3wJ9fP4cAcdZIRNuiEoA7GZIq9kMqfCylU1wcmgjPIfWRP32yk9eY_KlujybNEOpryAwgYzNbaPPZ-4KS_mjO76FHDcbpT-a_yHKZzDV55yAaqf53zb-UrvhWG3I3az-stH_a7Ppl9S2aNIWh3T5gHpM_mOa9kQ/s320/Copy%20of%20680669675_122163582926666837_6779955048447552600_n.jpg" alt="Mastery IELTS">
+        <div class="prog-overlay"><span>Mastery IELTS</span></div>
+      </a>
+      <a class="prog-card" href="https://www.youtube.com/@youth-empower-program" target="_blank">
+        <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJf_alyH0CEZ6jxeWKOzdrOegkg2QmoVWVc-fDSo3DbZ9_GwAgB4qSNVE9b8-XLK3dUhCNjrZdyKJikCwI_S9JME4PGW26Fh_PZ05oZCkIePDzjukGoNAZagZF2VLS0EZAeAkxAS6X0lOdqVX8JTgCkzwkb0-fNYCPVWnlNsWUqEu5-b463WKKrEZveftv/s320/Copy%20of%20Screenshot%202026-06-10%20121440.png" alt="Next Gen Influencer Marketing">
+        <div class="prog-overlay"><span>Next Gen Influencer Marketing</span></div>
+      </a>
+      <a class="prog-card" href="https://www.youtube.com/@youth-empower-program" target="_blank">
+        <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFizETsXLYwuCZAymqLdIyXiti0xJoC8GBwmefWBlekkDpwIxcbScNdGooTI5iAsAfu4vShVF4n8VGA-Sp-1Xcqt2JyVpq0njMU3CJRTW9cm04nL9L8fn-YE49jLThYMMfS6je5Ezhf5EMr7IZJDVUAigzyHjRgpXjCdJcNGgBZHY2BmjQYMg5M59Bdxez/s320/Copy%20of%20720400123_967279209403772_2751830557000378595_n.jpg" alt="AI Tools for Study and Research">
+        <div class="prog-overlay"><span>AI Tools for Study &amp; Research</span></div>
+      </a>
+      <a class="prog-card" href="https://youtu.be/-loquU1pTJk?si=_CHFY8kCZZ1Xyspi" target="_blank">
+        <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHwyIBzAcIjmo9cIFcszgKpgwvw_aCWzALtxBfeh2aTu7MX4p1BXMIgI_mzGb8zLndqjLxgF6Nbn8qcuBfu4bntjluraRcNL5MtC5yMKdvfRDSfyfNEvcGZzN3jPwbnYUDGnLd6Umv8XhmThnimK91VvQHZuzuUbNncNrzn7-LB6EownTyhYOlQZ7Jq3Mf/s320/Copy%20of%20650747753_122159499878666837_6303474067700968083_n.jpg" alt="Campus To MNC Career">
+        <div class="prog-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#0d2c63"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="prog-overlay"><span>Campus To MNC Career</span></div>
+      </a>
+      <a class="prog-card" href="https://youtu.be/-loquU1pTJk?si=_CHFY8kCZZ1Xyspi" target="_blank">
+        <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj45hEU3I99NC-hitOGsUc3DI9wUor2jqGyT3T9ufre7W-4bgCbwRVZQBHt-1AOBdbMZjfCzmJrshM89xUTMFdRqmN768kDYZ_i8jMrfUQgc44lkGv4UMd8ABKu27_dRil-ig6vmuvYxE0k2grET2ZQtcVaqQjETx7zX6fzk1Jv57BIglvOcuivLeE6QDLZ/s320/Copy%20of%20649282566_122159499920666837_5277191957870156985_n.jpg" alt="Campus To MNC Career Session 2">
+        <div class="prog-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#0d2c63"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="prog-overlay"><span>Campus To MNC Career — Part 2</span></div>
+      </a>
+      <a class="prog-card" href="https://www.linkedin.com/company/youth-empower-program/" target="_blank">
+        <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3zjdr2A41UJH0fce53Bt5s_RV6xUeU3Se4AWCfirbPuN36WeImq8Zy4y747EPUOHRfvja2dkiaNNNb4ue617XsgkU9AAlRmuSEYhG37NXiN0oaYr2UEGRFe3w1ZGmfql2wEMa81lV14SP1bOALRtIPUznQ3jrYs-EY3RkWW9JbBtmk3iS6fEb6PUJfu_v/s320/Copy%20of%20648849488_122159353712666837_9080020448346638325_n.jpg" alt="LinkedIn For Freshers">
+        <div class="prog-overlay"><span>LinkedIn For Freshers</span></div>
+      </a>
+      <a class="prog-card" href="https://youtu.be/pkhjj_RCr7w?si=swOQ8cDCotwgiD5f" target="_blank">
+        <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPBYp2a-20hrZSsK3wTXuJ9Id_Nagb8dYeMbF61U6kKTCr7RJ8e6aIP6tlQ1jR5eZhDk6uRlBqLelLrDSoSE2ZwRTHEO13QzKH1Xh8yNz9u5BI1egomRhxndWYoQsd_ZGQRbpwEnp81ipj77FyBCzk9xZQ2_f_TeWpe0oeyboNdifVe7bbsKVpGScbnJvF/s320/Copy%20of%20594066043_816974024434292_3542039777373222879_n.jpg" alt="Accounting Freelancing Bootcamp">
+        <div class="prog-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#0d2c63"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="prog-overlay"><span>Accounting Freelancing Bootcamp</span></div>
+      </a>
+      <a class="prog-card" href="https://www.youtube.com/@youth-empower-program" target="_blank">
+        <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgii0VZQVE22sNSdTZ79dBqibauRMV9DTBH648K7xx5vVxOuPTRLIN8UoagE5PkFsysCgMHNNgjmEYTxycr9PLC3kiwFGbBvlx6iCbZjNd2TweMlBYtF8odHA3zLi9NA7L16i-MSRxnATKwbPHzpSn5SiSrYDcaZZzm4kf1UBwAWshW3vGWZYD57eYtllUy/s320/Copy%20of%20572263060_787232214075140_8324013229472504968_n.jpg" alt="Accounting Career Path Workshop">
+        <div class="prog-overlay"><span>Accounting Career Path Workshop</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIDEOS ================= -->
+<section id="videos" class="bg-sky">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Watch &amp; learn</div>
+      <h2>Live from our sessions</h2>
+      <p>A selection of our free training classes and intern presentations, playable right here.</p>
+    </div>
+
+    <div class="video-tabs">
+      <h3>Free Training Sessions</h3>
+      <div class="video-grid">
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.youtube-nocookie.com/embed/Idhh302sMh4?rel=0" title="YEP Free Training" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.youtube-nocookie.com/embed/-loquU1pTJk?rel=0" title="Campus To MNC Career" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.youtube-nocookie.com/embed/pkhjj_RCr7w?rel=0" title="Accounting Freelancing" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+      </div>
+
+      <h3>Intern Presentations</h3>
+      <div class="video-grid">
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.youtube-nocookie.com/embed/rPgJTzTKKwg?rel=0" title="Intern Presentation 1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.youtube-nocookie.com/embed/s31HSFQwQus?rel=0" title="Intern Presentation 2" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.youtube-nocookie.com/embed/LN8Ks2EQ_Ps?rel=0" title="Intern Presentation 3" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.youtube-nocookie.com/embed/fCR9hAdnbgg?rel=0" title="Intern Presentation 4" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F26494514906833839%2F&show_text=false&width=267&t=0" title="Intern Presentation Reel 1" loading="lazy" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F904155409159975%2F&show_text=false&width=267&t=0" title="Intern Presentation Reel 3" loading="lazy" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2268387083569104%2F&show_text=false&width=267&t=0" title="Intern Presentation Reel 4" loading="lazy" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1275499227874112%2F&show_text=false&width=267&t=0" title="Intern Presentation Reel 5" loading="lazy" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2157450358127216%2F&show_text=false&width=267&t=0" title="Intern Presentation Reel 6" loading="lazy" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1447737733701260%2F&show_text=false&width=267&t=0" title="Intern Presentation Reel 7" loading="lazy" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2343487709476466%2F&show_text=false&width=267&t=0" title="Intern Presentation Reel 8" loading="lazy" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+        <div class="video-frame"><div class="ratio"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F960693376495842%2F&show_text=false&width=267&t=0" title="Intern Presentation Reel 9" loading="lazy" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="sec-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">What students say</div>
+      <h2>Student testimonials</h2>
+      <p style="margin:0 auto;">Real voices from interns who came through YEP's programs.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <svg class="testi-quote-mark" width="26" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.3 3.3C5 5 2 8.9 2 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6L9.3 3.3zm11 0C16 5 13 8.9 13 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6l-2-2.5z"/></svg>
+        <p>YEP helped me gain valuable knowledge about academic research and startup research. Since my university offers limited research opportunities, YEP gave me a platform to learn, explore, and grow.</p>
+        <div class="testi-foot"><h4>Mim Jahan</h4><span>National University</span></div>
+      </div>
+      <div class="testi-card">
+        <svg class="testi-quote-mark" width="26" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.3 3.3C5 5 2 8.9 2 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6L9.3 3.3zm11 0C16 5 13 8.9 13 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6l-2-2.5z"/></svg>
+        <p>Through YEP, I learned how to work on startup development and gained hands-on experience building a startup. It inspired me to start my own startup journey.</p>
+        <div class="testi-foot"><h4>Joy Roy</h4><span>Dhaka University</span></div>
+      </div>
+      <div class="testi-card">
+        <svg class="testi-quote-mark" width="26" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.3 3.3C5 5 2 8.9 2 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6L9.3 3.3zm11 0C16 5 13 8.9 13 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6l-2-2.5z"/></svg>
+        <p>YEP helped me overcome my challenges and improved my analytical, research and soft skills. I learned many new things and became more confident.</p>
+        <div class="testi-foot"><h4>Joy Biswas</h4><span>BGC Trust University</span></div>
+      </div>
+      <div class="testi-card">
+        <svg class="testi-quote-mark" width="26" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.3 3.3C5 5 2 8.9 2 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6L9.3 3.3zm11 0C16 5 13 8.9 13 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6l-2-2.5z"/></svg>
+        <p>This program helped me improve my presentation skills, PowerPoint skills and ability to work effectively in a team.</p>
+        <div class="testi-foot"><h4>Md. Emon Babu</h4><span>Jatiya Kabi Kazi Nazrul Islam University</span></div>
+      </div>
+      <div class="testi-card">
+        <svg class="testi-quote-mark" width="26" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.3 3.3C5 5 2 8.9 2 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6L9.3 3.3zm11 0C16 5 13 8.9 13 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6l-2-2.5z"/></svg>
+        <p>YEP has been a valuable learning journey. I worked on startup idea generation which helped me think creatively and identify practical solutions.</p>
+        <div class="testi-foot"><h4>MD. Asif Ekbal Khan</h4><span>Bangladesh University</span></div>
+      </div>
+      <div class="testi-card">
+        <svg class="testi-quote-mark" width="26" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.3 3.3C5 5 2 8.9 2 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6L9.3 3.3zm11 0C16 5 13 8.9 13 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6l-2-2.5z"/></svg>
+        <p>It was a valuable learning experience that helped me develop practical skills and understand real-world professional work.</p>
+        <div class="testi-foot"><h4>Mst Ummay Mozakkira</h4><span>Daffodil International University</span></div>
+      </div>
+      <div class="testi-card">
+        <svg class="testi-quote-mark" width="26" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.3 3.3C5 5 2 8.9 2 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6L9.3 3.3zm11 0C16 5 13 8.9 13 13.7c0 3.3 2 5.6 4.7 5.6 2.4 0 4.1-1.8 4.1-4.1 0-2.1-1.5-3.7-3.5-3.9-.2 0-.4 0-.6.1.4-2.4 2.4-4.6 4.6-5.6l-2-2.5z"/></svg>
+        <p>This program helped me overcome hesitation, improve communication skills and become more confident.</p>
+        <div class="testi-foot"><h4>Tithe Nath</h4><span>Jatiya Kabi Kazi Nazrul Islam University</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Meet the people</div>
+      <h2>The team behind YEP</h2>
+      <p>A group of volunteers and mentors working together to make free training and research access possible for young Bangladesh.</p>
+    </div>
+
+    <div class="tier">
+      <div class="tier-label">Leadership</div>
+      <div class="team-grid single">
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5UNllZrCD317TYNpSipaRXfD3O8uJ19pSrgrm-Ju1ExHnNaBiOrjYo7KIky976Ft_IJsIggzB8mF2URO3I_JEztx1QhTAw22wP3Jn8PyPTqlbYwxNtVPNMFVThROZbSNOoDAVPHUdvhf31UDzPeBFXyuu3g9T9cGe3FaQ4FI17P5OenLD5XeSBm4wdIsc/s1106/Aniruddha%20Sutradhar%20.png" alt="Aniruddha Sutradhar"></div>
+          <h4>Aniruddha Sutradhar</h4>
+          <span>Founder &amp; Director</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-label">Advisory Board</div>
+      <div class="team-grid" style="grid-template-columns:repeat(3,1fr);max-width:900px;">
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtbc9EFhMbSeor2xtZNw31b6BSa0CNIb9fBq0ZdCufFVSkyqw4WNGOZ4neWMTKTdWMBB4LG42EepR9KyCM58h3Wq4yw3V1wL0qFSUUM4hDpBFCgeQZCKM3b91EIIfmN0vX2ps4UzDz1SSwDxr4mD7_QZhyt5j2G6iePjq5_F4CycocoDVmsQw9elQb6BlR/s320/WhatsApp%20Image%202026-06-30%20at%2010.15.45%20PM.jpeg" alt="Fardaus Hossain Anoy"></div>
+          <h4>Fardaus Hossain Anoy</h4>
+          <span>Assistant Advisor</span>
+        </div>
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhu9kz4EX60JCE90Dk5eNKVcLXmHGALmC-BmOuKP9Uodx8hWC0rtFllxSRACDf3Ar0rBRI-GDlsbt2Vm6N-uvc8QiTz3ezfhZzIDJbr7FFlQOkd6Js6bpxuynWUo2G0lxj36jNh3nEMFw5wPZxq93jXg5wApmN6lejAE0mXX0SyTxy-W7h2qL7WaCuhMUC1/s320/istockphoto-1393750072-612x612.jpg" alt="Wahida Akhter"></div>
+          <h4>Wahida Akhter</h4>
+          <span>Assistant Advisor</span>
+        </div>
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgF5LgKCxPNgc-arts3Q9D7sA_ulCMmaf1mBx4cqUEjLNDOLrUv7u33R8pXUV15ECdE5Nnz_CG790SwaCrZ2F0qyXvH_GxpVzjPBelaINLjWmZNbGQ7TEd1PgvipS5hpUheXz_k206NEh0z98Sfc4EBio4ORl5L9fyusd149TvvjiiftI6GisaPTKo-P891/s320/WhatsApp%20Image%202026-06-30%20at%2011.28.55%20PM.jpeg" alt="Md Adnan Alam"></div>
+          <h4>Md Adnan Alam</h4>
+          <span>Assistant Advisor</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-label">Former Leadership</div>
+      <div class="team-grid single">
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlFN8sfrjqS1EgMaVID2OywsUGZREidulNAjNYQBTLBeXZHOA1hHPnk8Ue3zLbC5-_wApXu9KYYKN_lvRGhVJTIAPi259_pI_FomiNaJov0gj6uuStlDiDaieiEOIvs-6vqQtmnTwxMl5Sk6yBBMki3beT0TtqhoeFMM3LRFHHhKEtWB3PzjJFJGKTDA5B/s320/WhatsApp%20Image%202026-06-30%20at%206.56.25%20PM.jpeg" alt="Md. Arman Hossen"></div>
+          <h4>Md. Arman Hossen</h4>
+          <span>Former Deputy Director</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-label">Program Management</div>
+      <div class="team-grid single">
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFncL0d5h-Mox7-3nUph_wy9WzjCl6t_Wl7ekL-tTvfo1RQX0HUTCUqxKt4iAFHbtE3X1mjvOZVVHMemkT5i-PbfgpMH-x3KDaYE0GRbq0no2RVrB7BR-99ngRNYir-kfA35xSb33Aa2J0ZzMiq16efJuaxEiR9A7m2XC1VkckexzDFAnHVnsMcKB585qT/s320/WhatsApp%20Image%202026-06-30%20at%2011.51.20%20PM%20(1).jpeg" alt="Md. Shohidul Islam Saidy"></div>
+          <h4>Md. Shohidul Islam Saidy</h4>
+          <span>Program Manager</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-label">Department Team</div>
+      <div class="team-grid">
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEbNrlTe-PVzWVrttJ6smor1a-Ls3Dq3vRKBPDOdXQh1jDs1ZgOmS4MumM8YVzElml30ADflSbcyAw7isnWpxLTQ2Xjeyb8COJq7wMJwjL00a5yXr-dLKrd0IqMggcxerUQrZYOf90FYexad8nQs3C_OXApw2gkANDVXZvTpmg3MIkJJixhGrZvsZIAtck/s320/WhatsApp%20Image%202026-06-29%20at%209.40.32%20AM.jpeg" alt="MD. Rayhan Ali Rinku"></div>
+          <h4>MD. Rayhan Ali Rinku</h4>
+          <span>Head of Creative &amp; Content Writing Dept.</span>
+        </div>
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6mzA2b6lMKBf34Opm-SK7yWONmMROVBT1ojAc7qcSfVUs6k4x6oQvn5z8P8jkyuo1iFGbstGTJSeXSydnqSuAEhX0IZcNqyFqaXSv3md540krffoiroEv9aTxBgiblMrBH8tL1l0YObSFldnjyz-SoJGtt5TmTNDqOMnAguxza2hY7mJdUHQv2WPsMAWM/s320/WhatsApp%20Image%202026-06-28%20at%203.44.37%20PM.jpeg" alt="Fahim Bin Alam"></div>
+          <h4>Fahim Bin Alam</h4>
+          <span>Assistant Head, Research &amp; Innovation Dept.</span>
+        </div>
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjm2EaXPlyjev9mtfm69Y0jfS5rSWxMMSsvezzT2UITwWq__MFMyDwV27isb_n-8GpCHb37tiHeRcFgm0pqKnDYOHoC4-GGkrqxnteLJx8OQ-nghyphenhyphen82GrDt0qWkt0N9IpHO7vqZZOlNkwGIXE2DhfKDTEgFuwCug2zzEkgK5hV_IsY3HhZKf9B9WHDC9sXJ/s320/WhatsApp%20Image%202026-06-30%20at%204.55.49%20PM.jpeg" alt="Joyanta Kumar Barman"></div>
+          <h4>Joyanta Kumar Barman</h4>
+          <span>Assistant Head, Creative &amp; Content Writing Dept.</span>
+        </div>
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHRk_pAfMoBCr8oGTbDWWzkRkuzRrh-8TErL02gxWi65Wq6s4DP8_hEP1T89fFSsK0G9p2KJ5Pmn1YlwuA6C-q4O7RIWImjjIY7O5yCsYSage_7FrUFhSJYsFfKa4ia4iMECXXE68WQYlE3uCthcWRRhVAUmSjbK3vBvaDjmhAt6wiTOMpEpnd4kHAXgeN/s320/WhatsApp%20Image%202026-06-30%20at%204.55.35%20PM.jpeg" alt="MD. Al Amin"></div>
+          <h4>MD. Al Amin</h4>
+          <span>Senior Executive, Creative &amp; Content Writing Dept.</span>
+        </div>
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNglZt5S7LiU7aPI96XRtJpoNMqYKpdAWNZTnbwRv1xBVlaFc5GaLI_neQW8mHyfyRP56Htpm85LgG1j04yu3Mx2n74HsoohBknaug9bYXfHcUws7DhYdsJb2DWMIhcR_b4JwC5tbTK91kXQLmu0WKY_5w8wPafI617BvNKtsmTcCvdWactVFTu_WD0vso/s320/WhatsApp%20Image%202026-06-30%20at%204.54.45%20PM.jpeg" alt="Sourab Dey Soptom"></div>
+          <h4>Sourab Dey Soptom</h4>
+          <span>Junior Executive, Creative &amp; Content Writing Dept.</span>
+        </div>
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhp9hS0NxAIFi31E0pmS3LafDyGkPQuFNMKbTCwKh0DbtHQQY_LWO397Wmor8cbP18CO-w4UEWrU_JZdmGNT3RkCW6KU4jcqpN7fKFoBBIRKqiorjZCwvsuFWblwdRay6HQXqfRycqZ-6JUDwuqFy8QNQPoZQOgIZlwyVxou1beFKCp-tShH3TQ-0CUPj6_/s320/WhatsApp%20Image%202026-06-30%20at%2011.51.19%20PM.jpeg" alt="Shanjida Binte Kibrea"></div>
+          <h4>Shanjida Binte Kibrea</h4>
+          <span>Associate, Research &amp; Innovation Dept.</span>
+        </div>
+        <div class="person">
+          <div class="avatar"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifMRciezr7ErF0mzAf3MoSEUyaeUGZJM6CfdW-Rc8jkMKFpgix9-W6Qj7TjL4d1HpOGn5ZcawJ9ZGZbbGtnCs-e3u-NKmW9InhPgJ-iOaNGoyXp8leEAItzys_1xQhZrSlLTWE9jsLvLBmOj9hiCO8wThyguePGZuhnnCdqA4wPDbWSgd8azE8uLr0Cx23/s320/WhatsApp%20Image%202026-07-02%20at%206.44.54%20PM.jpeg" alt="Tithe Nath"></div>
+          <h4>Tithe Nath</h4>
+          <span>Junior Assistant, Creative &amp; Content Writing Dept.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FUTURE GOAL ================= -->
+<section id="future">
+  <div class="wrap">
+    <div class="sec-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Looking ahead</div>
+      <h2>Future goal — next 3–5 years</h2>
+      <p style="margin:0 auto;">YEP aims to build a larger youth development ecosystem where young people can:</p>
+    </div>
+    <div class="goal-grid">
+      <div class="goal-card">
+        <div class="goal-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <p>Become self-employed</p>
+      </div>
+      <div class="goal-card">
+        <div class="goal-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 11-14h-7l1-6z"/></svg></div>
+        <p>Build innovative startups</p>
+      </div>
+      <div class="goal-card">
+        <div class="goal-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <p>Develop professional careers</p>
+      </div>
+      <div class="goal-card">
+        <div class="goal-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <p>Create solutions for Bangladesh's challenges</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARTNERS ================= -->
+<section id="partners" class="bg-sky">
+  <div class="wrap">
+    <div class="sec-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Who supports us</div>
+      <h2>Our Partners</h2>
+      <p style="margin:0 auto;">Organisations that stand with Youth Empower Program in building opportunity for young people.</p>
+    </div>
+
+    <div class="partner-block">
+      <div class="partner-title">Strategic Partners</div>
+      <div class="marquee">
+        <div class="marquee-track">
+          <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjE4mYNn0n0uPfTovjQ7ZwA_PhKSVYXb48FciVP0fqydzbqjA_ZVT3mrpJZKV7rYE-bsEArA6LyAhjzFnZI7bQOnx3Y5rfUfkxZs4iUK9ASyo4M3Dkwrq6g6RspbQlo3dlLbz1qsNg2jkxWtPKfevNI52gcqqydG44omGXAoQtDOm0_vSUE-TiSc1LbmVy8/s320/images.jpg" alt="Strategic Partner">
+          <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiH-Mu52KgCs7YPwmFI5Eb2YI6f7Iumhjp-px5GNSyNrnfA0t_jJEcIIqaPtlC3IsjND9m7NMdq2vQiZd4IegEEhfxJTWO6JVpeKDTUVzd4rIqWTDo7-XiIyh9h2F9jemf2DwXJtzJ_eeCILcI4ogYVcicbt7xE7wY7yvK2bWacq0CKgKLymwJJw0KIYdTp/s320/Blue%20Circle%20Icon%20Modern%20Simple%20Business%20Logo_20250817_145618_0000.jpg" alt="Strategic Partner">
+          <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9aQSuHxPMOSpqA6rNItGqc8MUh2-VfYEXNHPCYj2r2smqYKCA5miUcd_lQ2k78j49pIPpMnZo7QquDdWxAtwrjz2BT61QTG2Ao-QWjEQvLdqC108OqwH0HVJYZadMw_ZvCPydCjiYJKWbTGF0HXLjvAHRCzsDUs3Oa_nKZuYjufaWmBaPIrieZFhu3tQN/s320/WhatsApp%20Image%202026-06-28%20at%202.35.18%20PM.jpeg" alt="Strategic Partner">
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-block">
+      <div class="partner-title">University Club Partners</div>
+      <div class="marquee">
+        <div class="marquee-track">
+          <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFbQl7ZzQy9Ih7iFEI1pyNd4N51arm5C7PrTQkh13AFoJS50c8pm2Df9S8RcdLD0wg_gFqicOiGfscNX_VqWxQ2XImEk6D_HvCbMZQeROcABOs4UWsyh3d-IR3J8QyUCI9_HwkuCFM9SzWlmYqx2z8jLVnHB5MzhAP-1EX4uxdsZn9aaucgHWNTg2uY23Q/s320/WhatsApp%20Image%202026-06-28%20at%203.49.38%20PM.jpeg" alt="University Club Partner">
+          <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUSPuOzqsceUJQDl3Cyfdud5DyweAqs5ylKZU610mS83WXKM3KhPfiwnLyoiONLw0AUZ9mukwmkb3N2RqgXXMwOFxgMhfouQtSG7gjYEAH9xO2_fY79VbFZotC3uZd1MuWd00eB1akHVzF222T6CdjWn-0SESXBaLpVTRHT5jvYGGQMy9pMYcyEBKORavJ/s320/AIBA-EIC%20Black%20round%20shape%20(1).png" alt="University Club Partner">
+          <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4Vyjrjtd5GDbJVeI3Xlcz2hj9U8z1A1RLImzajZYTl6_dpXL6HOSgTMvOTGcByfUYaNE_6AJhjFJFQWGfp02S-IUurVwvnbD4UYsiEgipowt1M8amCMfr_jPk0TaukC9qrTRpqvh4snARCoGfzypHsEfnrxT26P1pC2fbqUFfZ8DxkCCU90s7MU9aXE5d/s320/IMG-20251204-WA0025.jpg" alt="University Club Partner">
+          <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhssrUaEYGAjPyB2Y7CQikymLB4q8oV79K1Pv4JEqwYovKgKguPg2EbIWOb6AIX3vsiomItn4ZB_OWvOUiIP9WL5aQ-otSTFsqs7zfRfOSRRmYWdz7UpDsRn8ws5wLpUGbF6xKu8lQLBlfCQXifQeGBVVlmerS0U7rE_JsbKk-O0Daih_Wvliq5osVpuorg/s320/IMG-20251218-WA0010.jpg" alt="University Club Partner">
+          <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRNmRcQLcLQlZbj-rH05xR_LkLAP69EGpiuVhbIUUJQOI2TJQ5SbrEUDJDOYRUrWJjS_nUWTZaqwDWstD42QymvgfZZYMyf2X3lIyOwJYGJR88C0qpzU9MpxRQEg4-bXFmBgZgMYVpokVTKXA6K_Ftm7U5VLgNYZPRTXrSbEQhYQ5UV9GIJMfA_ceD4KUD/s320/RUBCC%20logo.png" alt="University Club Partner">
+          <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVAEX-XJQ8lSeU7kCMIqGxX5dI1OGviGCqUW2GuhzvvX2iG46xYUd0aLzm_XDxs2Cls0_Z7uestIcLgkp6wpoRGXA6Sq_3qwYFCsuVQtbw5pCtMBXG51JwqshHotupo9sKGIW3HtiGIym234oHvvrmII5BLHrwViqB9gx6C4aGKO6Pmpk42BxF4VYrmOCG/s320/WhatsApp%20Image%202026-06-28%20at%203.51.53%20PM.jpeg" alt="University Club Partner">
+          <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAslB4V8gjpxeZNSuVMlspcIftaYlHx8cutNdoTwEoMt2QTrcLmXGGqTqiRYaopNArregZdXrnz8HOjK4gP5aEDHH-nE8Hiu_Sk1wWQLnsc3V7Ye0S0Z3Ef1rbYSg6O48hdLCe5kHNqb99nMlQvkeLJMmHAXvrx2MtGAktPjBSLaq13bKl-_K9SiDjDSzV/s320/RUBSDC.png" alt="University Club Partner">
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-block">
+      <div class="partner-title">Key Partners</div>
+      <div class="marquee">
+        <div class="marquee-track">
+          <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbIOuIkxVCBB0Gg5OhP3alza_6Mjefa3JaWUJ1u-1R4CAOGLZSceJzfJEcVpTApdrvtQcr_qJI1QW7-xTGuqJfleFwD-iEWDBh57cron2THI9Y8GUhlW2bsUpcNIzAZAMFimGp7IX11CVgGzCzvBAusK8FQ1YCVncIUbdUMkSzOstel4rcQu3iV2j_Itol/s320/20250222_224628.png" alt="Key Partner">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMMUNITY ================= -->
+<section id="community">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Stay connected</div>
+      <h2>Join the YEP community</h2>
+      <p>Follow along, ask questions, and be first to know about the next free training session or internship batch.</p>
+    </div>
+    <div class="comm-grid">
+      <a class="comm-card" href="https://www.facebook.com/share/g/1KxJv9oUaB/" target="_blank">
+        <div class="comm-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg></div>
+        <h4>Facebook Community</h4>
+        <p>Discussions, updates &amp; announcements from the YEP group.</p>
+      </a>
+      <a class="comm-card" href="https://www.facebook.com/yep25/" target="_blank">
+        <div class="comm-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg></div>
+        <h4>Facebook Page</h4>
+        <p>Official news and program highlights from YEP.</p>
+      </a>
+      <a class="comm-card" href="https://www.linkedin.com/company/youth-empower-program/" target="_blank">
+        <div class="comm-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></div>
+        <h4>LinkedIn</h4>
+        <p>Professional updates and organisational milestones.</p>
+      </a>
+      <a class="comm-card" href="https://www.youtube.com/@youth-empower-program" target="_blank">
+        <div class="comm-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.6-.46-5.3a2.9 2.9 0 00-2-2C18.9 4.2 12 4.2 12 4.2s-6.9 0-8.54.5a2.9 2.9 0 00-2 2C1 8.4 1 12 1 12s0 3.6.46 5.3a2.9 2.9 0 002 2c1.64.5 8.54.5 8.54.5s6.9 0 8.54-.5a2.9 2.9 0 002-2C23 15.6 23 12 23 12zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg></div>
+        <h4>YouTube</h4>
+        <p>Free training recordings and intern presentations.</p>
+      </a>
+      <a class="comm-card" href="https://wa.me/8801570219399" target="_blank">
+        <div class="comm-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.06-1.33A10 10 0 1012 2zm0 18.2a8.17 8.17 0 01-4.17-1.14l-.3-.18-3.1.82.83-3.02-.2-.31A8.2 8.2 0 1112 20.2zm4.5-6.13c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.16-.29.18-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.2 3.7.59.25 1.05.4 1.4.51.59.19 1.13.16 1.55.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></div>
+        <h4>WhatsApp</h4>
+        <p>+880 1570-219399 — chat with our team directly.</p>
+      </a>
+      <a class="comm-card" href="mailto:yep.official25@gmail.com">
+        <div class="comm-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+        <h4>Email</h4>
+        <p>yep.official25@gmail.com</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA STRIP ================= -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta-strip">
+      <div>
+        <h2>Ready to grow with YEP?</h2>
+        <p>Internship Batch 3 is currently running — free training, real projects, real mentorship.</p>
+      </div>
+      <a href="https://www.facebook.com/share/g/1KxJv9oUaB/" target="_blank" class="btn btn-ghost">Apply Through Our Community</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img loading="lazy" src="data:image/jpeg;base64,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" alt="YEP Logo">
+          <span>Youth Empower Program</span>
+        </div>
+        <p class="small">A nonprofit youth organisation developing leadership, entrepreneurship, and research skills through free virtual internships open to university students across all of Bangladesh, since January 2025.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#videos">Videos</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#partners">Partners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Departments</h5>
+        <ul>
+          <li>Research &amp; Innovation</li>
+          <li>IT Department</li>
+          <li>Content Writing &amp; Creative</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://www.facebook.com/yep25/" target="_blank">Facebook Page</a></li>
+          <li><a href="https://www.facebook.com/share/g/1KxJv9oUaB/" target="_blank">Facebook Group</a></li>
+          <li><a href="https://www.linkedin.com/company/youth-empower-program/" target="_blank">LinkedIn</a></li>
+          <li><a href="https://www.youtube.com/@youth-empower-program" target="_blank">YouTube</a></li>
+          <li><a href="https://wa.me/8801570219399" target="_blank">WhatsApp: +880 1570-219399</a></li>
+          <li><a href="mailto:yep.official25@gmail.com">yep.official25@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Youth Empower Program. All rights reserved.</span>
+      <span>Dhaka, Bangladesh</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/8801570219399" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.06-1.33A10 10 0 1012 2zm0 18.2a8.17 8.17 0 01-4.17-1.14l-.3-.18-3.1.82.83-3.02-.2-.31A8.2 8.2 0 1112 20.2zm4.5-6.13c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.16-.29.18-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.2 3.7.59.25 1.05.4 1.4.51.59.19 1.13.16 1.55.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+</a>
+
+</body>
+</html>
